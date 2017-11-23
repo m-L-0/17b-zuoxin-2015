@@ -33,7 +33,7 @@ def max_pool_2x2(x):
     # 池化卷积结果（conv2d）池化层采用kernel大小为2*2，步数也为2，周围补0，取最大值。数据量缩小了4倍
     return tf.nn.max_pool(x, ksize=[1, 2, 2, 1], strides=[1, 2, 2, 1], padding='SAME')
 
-
+#relu->prelu
 def prelu(_x, scope=None):
     """parametric ReLU activation"""
     with tf.variable_scope(name_or_scope=scope, default_name="prelu"):
