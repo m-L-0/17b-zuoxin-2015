@@ -6,6 +6,7 @@
 
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
+import numpy as np
 
 mnist = input_data.read_data_sets("data/fashion", one_hot=True)  # 读取图片数据集
 
@@ -114,4 +115,16 @@ with tf.Session() as sess:
         ckpt = tf.train.get_checkpoint_state(checkpoint_dir=check_point_path)
         saver.restore(sess,ckpt.model_checkpoint_path)
 
+        Y = np.zeros(10000)
+        Ytemp = y_conv.eval(feed_dict={xs: mnist.test.images, ys: mnist.test.labels, keep_prob: 1.0})
+        for i in range(10000):
+            #生成0-9标签
+            Y[i] = np.argmax(Ytemp[i])
+
+
         print("test accuracy %g" % accuracy.eval(feed_dict={xs: mnist.test.images, ys: mnist.test.labels, keep_prob: 1.0}))
+#生成txt文件
+fp = open("test.txt", "w+")
+for i in range(10000):
+    fp.write(str(int(Y[i]))+"\n")
+fp.close()
