@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @File  : 3D.py
+# @File  : t-sne.py
 # @Author: Joker
 # @Date  : 2017/11/15
 
