@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @File  : fashion-mnist.py
 # @Author: Joker
-# @Date  : 2017/11/14
+# @Date  : 2017/11/15
 import tensorflow as tf
 
 
