@@ -1,0 +1,20 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {{ message }}
+</div>
+{% endfor %}
+<div class="col-md-4" style="float: none; margin: 0 auto; margin-bottom: 80px">
+    {{ wtf.quick_form(form) }}
+    <br>
+    {% if out %}
+        {{ out }}
+    {% else %}
+    请上传验证码图片
+    {% endif %}
+</div>
+{% endblock %}
